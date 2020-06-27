@@ -1,4 +1,5 @@
 import SearchMore from './SearchMore';
-import Search from './SearchKeywords';
+import Search, { requestReducer} from './SearchKeywords';
 
 export { SearchMore, Search};
+export { requestReducer};

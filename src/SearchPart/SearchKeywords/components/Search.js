@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import {fetchResult} from '../actions';
 
 class Search extends Component {
 
@@ -26,15 +29,20 @@ class Search extends Component {
     render() {
         const {tmpInput}=this.state;
         // 
-        const {searchValue}=this.props;
+        const { fetchResult}=this.props;
+        
         return (
             <div className="search">
                 <input onChange={this.setInput} value={tmpInput}/>
-                <button className="submit" onClick={searchValue}>search</button>
+                <button className="submit" onClick={fetchResult}>search</button>
                 <button className="cancel" onClick={this.clearInput}>cancel</button>
             </div>
         )
     }
 }
 
-export default Search;
+const mapDispatch = {
+    fetchResult
+};
+
+export default connect(null,mapDispatch)(Search);
