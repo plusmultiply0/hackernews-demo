@@ -52,11 +52,11 @@ const failRequest = () =>{
 // 
 function fetchResult(){
     return function(dispatch,getState){
-        beginRequest();
+        dispatch(beginRequest());
         fetch(egurl)
         .then(response => response.json())
-        .then(result => {console.log(result);successRequest(result);})
-        .catch((e)=>{console.log(e);failRequest();});
+        .then(result => {console.log(result);dispatch(successRequest(result));})
+        .catch((e)=>{console.log(e);dispatch(failRequest());});
     }
 }
 

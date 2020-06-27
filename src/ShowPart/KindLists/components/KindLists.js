@@ -5,7 +5,7 @@ const KindLists = (props) => {
 
     return (
         <div className="kindlist">
-
+            <div></div>
         </div>
     );
 }

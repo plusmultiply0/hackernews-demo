@@ -2,7 +2,7 @@ import { combineReducers } from 'redux'
 import {requestReducer} from './SearchPart';
 
 const rootReducer = combineReducers({
-    items: requestReducer
+    news: requestReducer
 });
 
 export default rootReducer;

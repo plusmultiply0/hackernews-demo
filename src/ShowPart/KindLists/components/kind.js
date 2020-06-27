@@ -4,7 +4,7 @@ const Kind = (props)=>{
 
     return(
         <div className="kind">
-
+            
         </div>
     )
 }
