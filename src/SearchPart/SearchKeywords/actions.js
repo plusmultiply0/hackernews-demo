@@ -1,6 +1,14 @@
+// import ReduxThunk from 'redux-thunk';
 // constant
+const baseUrl = 'http://hn.algolia.com/api/v1/';
+const searchMode = 'search';
+const paramSearch = 'query=';
 
+const paramPage = 'page=';
+const paramHpp = 'hitsPerPage=';
+const defaultHpp = '50';
 
+const egurl = `${baseUrl}${searchMode}?${paramSearch}${'react'}&${paramPage}${'0'}&${paramHpp}${defaultHpp}`
 
 // action type
 const searchBegin = 'search/requestBegin';
@@ -38,4 +46,15 @@ const failRequest = () =>{
     })
 }
 
+// 
+function fetchResult(){
+    return function(dispatch,getState){
+        beginRequest();
+        fetch(egurl)
+        .then(response => response.json())
+        .then(result => console.log(result))
+    }
+}
+
 export {beginRequest,successRequest,failRequest}
+export {fetchResult}
