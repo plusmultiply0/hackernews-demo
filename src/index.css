@@ -12,11 +12,20 @@ code {
     monospace;
 }
 
+
+.App{
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
 /*  */
 .newlist .newsitem{
   width:90%;
-  display: flex;
-  justify-content: space-between;
+  /* display: flex; */
+  /* justify-content: space-between; */
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr 1fr 20px;
+  
 }
 .newsitem span,.newsitem a{
   display: inline-block;
@@ -24,6 +33,29 @@ code {
 .newsitem span:first-child{
   margin-left: 10%;
 }
-.newsitem span:nth-child(2){
-  width:30%
+.newsitem a{
+  
+}
+.fordislike,.forlike{
+  height: 20px;
+  widows: 20px;
+  border-radius: 10px;
+}
+.fordislike{
+  background-color: aliceblue;
+}
+.fordislike:hover{
+  background-color: brown;
+}
+.forlike{
+  background-color: brown;
+}
+
+
+div .more{
+  border: 1px solod #000;
+  border-radius: 10px;
+  width: 5%;
+  background-color: brown;
+  color:#fff
 }

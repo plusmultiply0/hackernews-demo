@@ -1,5 +1,5 @@
 import SearchMore from './SearchMore';
-import Search, { requestReducer} from './SearchKeywords';
+import Search, { requestReducer, fetchResult} from './SearchKeywords';
 
 export { SearchMore, Search};
-export { requestReducer};
+export { requestReducer, fetchResult};

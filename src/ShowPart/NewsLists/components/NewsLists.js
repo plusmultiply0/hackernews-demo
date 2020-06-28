@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
 import NewsItem from './NewsItem';
 import {connect} from 'react-redux';
+import { fetchResult} from '../../../SearchPart';
 
 class NewsLists extends Component {
     constructor(props) {
         super(props);
         this.state = {};
-    }
-
-    componentDidMount(){
         
     }
+
+    // componentDidMount(){
+    //     fetchResult('programmer');
+    // }
+
+    
     render() {
         const props = this.props;
         return (
@@ -26,6 +30,7 @@ class NewsLists extends Component {
                                 key={item.objectID}
                                 kind={item._tags[0]}
                                 like={false}
+                                
                             />
                     );
                 })

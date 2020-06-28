@@ -8,7 +8,7 @@ const paramPage = 'page=';
 const paramHpp = 'hitsPerPage=';
 const defaultHpp = '50';
 
-const egurl = `${baseUrl}${searchMode}?${paramSearch}${'react'}&${paramPage}${'0'}&${paramHpp}${defaultHpp}`
+// const egurl = `${baseUrl}${searchMode}?${paramSearch}${'react'}&${paramPage}${'0'}&${paramHpp}${defaultHpp}`
 
 // action type
 const searchBegin = 'search/requestBegin';
@@ -50,8 +50,9 @@ const failRequest = () =>{
 }
 
 // 
-function fetchResult(){
+function fetchResult(searchTrem,page=0){
     return function(dispatch,getState){
+        const egurl = `${baseUrl}${searchMode}?${paramSearch}${searchTrem}&${paramPage}${page}&${paramHpp}${defaultHpp}`
         dispatch(beginRequest());
         fetch(egurl)
         .then(response => response.json())
