@@ -1,4 +1,4 @@
-import { searchBegin, searchSuccess, searchFail } from './actions';
+import { searchBegin, searchSuccess, searchFail, cacheUse, searchUse} from './actions';
 
 import { findItem} from '../../utility'
 
@@ -20,11 +20,11 @@ function caseSuccess(state,action){
             page
         }, ...restItems];
         
-        return {
+        return Object.assign({},state,{
             items,
             keywords,
             isLoading: false
-        }
+        })
     }
     // first request
     let items = [{
@@ -32,14 +32,14 @@ function caseSuccess(state,action){
         hits,
         page
     }, ...state.items];
-    return {
+    return Object.assign({},state,{
         items,
         keywords,
         isLoading: false
-    }
+    })
 }
 
-function requestReducer(state={items:[],keywords:[],isLoading:false},action){
+function requestReducer(state = { items: [], keywords: [], isCache: false,searchTerm:'',isLoading:false},action){
     
     switch(action.type){
         case searchBegin:
@@ -48,6 +48,10 @@ function requestReducer(state={items:[],keywords:[],isLoading:false},action){
             return caseSuccess(state,action);
         case searchFail:
             return { ...state, isLoading: false }
+        case cacheUse:
+            return { ...state, isCache: true, searchTerm: action.payload.searchTerm}
+        case searchUse:
+            return {...state,isCache:false}
         default:
             return state;
     }

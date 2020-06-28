@@ -5,7 +5,7 @@ import {findItem} from '../../../utility';
 
 const SearchMore = (props)=>{
     const {moreValue,searchTerm,page} = props;
-    const search = ()=>moreValue(searchTerm,page);
+    const search = ()=>moreValue(searchTerm,page+1);
     return(
         <div className="more" onClick={search}>
             More
