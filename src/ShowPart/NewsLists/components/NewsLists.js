@@ -32,7 +32,7 @@ class NewsLists extends Component {
                                         key={item.objectID}
                                         kind={item._tags[0]}
                                         like={false}
-
+                                        itemID={item.objectID}
                                     />
                                 );
                             })
@@ -44,8 +44,8 @@ class NewsLists extends Component {
                                         url={item.url}
                                         key={item.objectID}
                                         kind={item._tags[0]}
-                                        like={false}
-
+                                        like={item.like}
+                                        itemID={item.objectID}
                                     />);
                             }))
                         : <div>empty list</div>

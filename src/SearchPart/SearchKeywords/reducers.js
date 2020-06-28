@@ -1,5 +1,5 @@
 import { searchBegin, searchSuccess, searchFail, cacheUse, searchUse} from './actions';
-
+import { itemDelete, itemLike } from '../../ShowPart';
 import { findItem} from '../../utility'
 
 function caseSuccess(state,action){
@@ -23,7 +23,8 @@ function caseSuccess(state,action){
         return Object.assign({},state,{
             items,
             keywords,
-            isLoading: false
+            isLoading: false,
+            searchTerm:keyword
         })
     }
     // first request
@@ -35,8 +36,35 @@ function caseSuccess(state,action){
     return Object.assign({},state,{
         items,
         keywords,
-        isLoading: false
+        isLoading: false,
+        searchTerm: keyword
     })
+}
+
+function caseDelete(state,action){
+    const {items,searchTerm} = state;
+    console.log(items);
+    let item = items.filter((item)=>item.keyword===searchTerm)[0];
+    let restItems = items.filter((item) => item.keyword !== searchTerm);
+    let newHits = item.hits.filter((item) => item.objectID !== action.payload.id);
+    
+    return Object.assign({},state,{items:[Object.assign({},item,{hits:newHits}),...restItems]})
+}
+
+function caseLike(state,action){
+    const { items, searchTerm } = state;
+    console.log(items);
+    let item = items.filter((item) => item.keyword === searchTerm)[0];
+    let restItems = items.filter((item) => item.keyword !== searchTerm);
+    let newHits = item.hits.map((item)=>{
+        if (item.objectID === action.payload.id){
+            let returnV = item.hasOwnProperty('like') ? { ...item, like: !item.like } : { ...item, like: true };
+            return returnV;
+        }
+        return item;
+    })
+
+    return Object.assign({}, state, { items: [Object.assign({}, item, { hits: newHits }),...restItems] })
 }
 
 function requestReducer(state = { items: [], keywords: [], isCache: false,searchTerm:'',isLoading:false},action){
@@ -48,10 +76,16 @@ function requestReducer(state = { items: [], keywords: [], isCache: false,search
             return caseSuccess(state,action);
         case searchFail:
             return { ...state, isLoading: false }
+        //    
         case cacheUse:
             return { ...state, isCache: true, searchTerm: action.payload.searchTerm}
         case searchUse:
             return {...state,isCache:false}
+        // 
+        case itemLike:
+            return caseLike(state, action);
+        case itemDelete:
+            return caseDelete(state, action);
         default:
             return state;
     }

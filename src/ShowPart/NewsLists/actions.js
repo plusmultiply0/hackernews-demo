@@ -24,3 +24,4 @@ const likeItem = (id)=>{
 }
 
 export {deleteItem,likeItem}
+export { itemDelete,itemLike}

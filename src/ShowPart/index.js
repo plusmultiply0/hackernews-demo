@@ -1,6 +1,7 @@
 import React from 'react';
 import NewsLists from './NewsLists';
 import KindLists from './KindLists';
+import { itemDelete, itemLike } from './NewsLists'
 
 const NewsTable = (props)=>{
     
@@ -13,3 +14,4 @@ const NewsTable = (props)=>{
     }
 
 export default NewsTable;
+export { itemDelete, itemLike }
