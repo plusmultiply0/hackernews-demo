@@ -33,6 +33,8 @@ class NewsLists extends Component {
                                         kind={item._tags[0]}
                                         like={false}
                                         itemID={item.objectID}
+                                        points={item.points}
+                                        created={item.created_at}
                                     />
                                 );
                             })
@@ -46,6 +48,8 @@ class NewsLists extends Component {
                                         kind={item._tags[0]}
                                         like={item.like}
                                         itemID={item.objectID}
+                                        points={item.points}
+                                        created={item.created_at}
                                     />);
                             }))
                         : <div>empty list</div>

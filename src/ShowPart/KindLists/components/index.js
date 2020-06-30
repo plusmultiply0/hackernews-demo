@@ -1,3 +1,3 @@
-import KindLists from './KindLists';
+import KindLists from './kindLists';
 
 export default KindLists;

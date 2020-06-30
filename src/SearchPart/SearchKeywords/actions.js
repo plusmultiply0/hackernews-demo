@@ -2,6 +2,7 @@
 // constant
 const baseUrl = 'http://hn.algolia.com/api/v1/';
 const searchMode = 'search';
+// const searchMode = 'search_by_date'
 const paramSearch = 'query=';
 
 const paramPage = 'page=';

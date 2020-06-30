@@ -1,12 +1,12 @@
 import React from 'react';
 
-const Kind = (props)=>{
+const Kind = (props) => {
 
-    return(
-        <div className="kind">
-            
+    return (
+        <div className="kindlist">
+            <div>{props.children}</div>
         </div>
-    )
+    );
 }
 
 export default Kind;

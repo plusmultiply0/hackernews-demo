@@ -1,61 +1,169 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-
-.App{
+.App {
   display: flex;
   flex-flow: column;
   align-items: center;
 }
 /*  */
-.newlist .newsitem{
-  width:90%;
-  /* display: flex; */
-  /* justify-content: space-between; */
-  display: grid;
-  grid-template-columns: 1fr 4fr 1fr 1fr 20px 1fr;
-  
+.kind {
+  display: none;
+  grid-template-columns: 1fr 5fr 1fr 1fr 2fr 1fr 20px 1fr;
 }
-.newsitem span,.newsitem a{
+.kindlist {
+  font-weight: 700;
+}
+/*  */
+
+.newsitem span,
+.newsitem a {
+  display: inline-block;
+  color: #fff;
+}
+.item div:first-child,
+.item div:last-child {
+  font-size: 0.7em;
+  margin-left: 5px;
+}
+a {
+  text-decoration: none;
+}
+
+.newsitem a.link {
+  display: block;
+  color: aliceblue;
+  font-size: 1.2em;
+  font-weight: 700;
+  margin-left: 4px;
+}
+/*  */
+.created,
+.comment {
+  font-size: 0.8em;
+  margin-right: 5px;
+}
+.author,
+.scores {
+  font-size: 0.9em;
+}
+.author,
+.comment {
+  text-decoration: underline;
+}
+/*  */
+.itemlike {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  background-color: hsla(0, 15%, 20%, 0.86);
+  color: #fff;
+  border: 1px solid #456;
+  border-right: none;
+}
+.newsitem {
+  display: flex;
+  margin: 5px 0;
+  /* margin-left: 10%; */
+  /* background-color: hsla(0, 15%, 20%, 0.86); */
+  justify-content: space-around;
+}
+.newsitem span.delete {
+  display: flex;
+  align-items: center;
+  border: 1px solid #456;
+  padding: 2% 4%;
+  background-color: hsla(0, 15%, 20%, 0.86);
+  color: #fff;
+  border-left: transparent;
+}
+.newsitem span.delete:hover {
+  border: 1px solid rgba(15, 14, 14, 0.13);
+  background-color: rgba(15, 14, 14, 0.13);
+  display: flex;
+}
+.newsitem span.delete:hover span {
+  color: hsla(0, 15%, 20%, 0.86);
+  background-color: transparent;
+}
+/*  */
+.item {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+
+  padding: 4px 2px;
+  /* margin-right: 5%; */
+}
+/* .item > a{
+  align-self: center;
+}  */
+/*  */
+.item div:last-child span:first-child {
+  margin-right: 5px;
   display: inline-block;
 }
-.newsitem span:first-child{
-  margin-left: 10%;
+/*  */
+.like {
+  padding: 2%;
+  /* display: flex; */
+  display: none;
+  align-items: center;
+  width:100px;
+  /* margin: 20px auto; */
 }
-.newsitem a{
-  
-}
-.fordislike,.forlike{
+/*  */
+div.fordislike,
+div.forlike {
+  display: absolute;
   height: 20px;
-  widows: 20px;
-  border-radius: 10px;
+  width: 20px;
+  transform: rotate(45deg);
+  /* border-radius: 10px; */
 }
-.fordislike{
+
+
+
+div.fordislike::before,
+div.forlike::before,
+div.fordislike::after,
+div.forlike::after {
+  position: absolute;
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+div.fordislike:hover::before,
+div.forlike:hover::before,
+div.fordislike:hover::after,
+div.forlike:hover::after {
+  background-color:brown;
+}
+div.fordislike::before,
+div.forlike::before{
+  left: -9px;
+}
+div.fordislike::after,
+div.forlike::after{
+  top: -9px;
+  right: 0px;
+}
+
+
+.fordislike {
   background-color: aliceblue;
 }
-.fordislike:hover{
+.fordislike:hover {
   background-color: brown;
 }
-.forlike{
+.forlike {
   background-color: brown;
 }
+/*  */
 
-
-div .more{
-  border: 1px solod #000;
+div .more {
+  border: 1px solod hsla(0, 15%, 20%, 0.86)000;
   border-radius: 10px;
   width: 5%;
   background-color: brown;
-  color:#fff
+  color: #fff;
 }
