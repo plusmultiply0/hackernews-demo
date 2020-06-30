@@ -1,6 +1,6 @@
 import { searchBegin, searchSuccess, searchFail, cacheUse, searchUse} from './actions';
 import { itemDelete, itemLike } from '../../ShowPart';
-import { findItem} from '../../utility'
+import { findItem} from '../../utility';
 
 function caseSuccess(state,action){
     const { payload } = action;
@@ -67,7 +67,7 @@ function caseLike(state,action){
     return Object.assign({}, state, { items: [Object.assign({}, item, { hits: newHits }),...restItems] })
 }
 
-function requestReducer(state = { items: [], keywords: [], isCache: false,searchTerm:'',isLoading:false},action){
+function newsReducer(state = { items: [], keywords: [], isCache: false,searchTerm:'',isLoading:false},action){
     
     switch(action.type){
         case searchBegin:
@@ -91,4 +91,4 @@ function requestReducer(state = { items: [], keywords: [], isCache: false,search
     }
 }
 
-export default requestReducer;
+export default newsReducer;

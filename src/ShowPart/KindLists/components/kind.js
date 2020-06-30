@@ -3,9 +3,9 @@ import React from 'react';
 const Kind = (props) => {
 
     return (
-        <div className="kindlist">
-            <div>{props.children}</div>
-        </div>
+            <option className="kindlist" value={props.children}>
+                {props.children}
+            </option>
     );
 }
 

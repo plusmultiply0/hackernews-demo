@@ -1,17 +1,19 @@
-// action type
-const kindChangeOrReverse = 'kind/changeOrReverse';
-
-// constant--根据API来
-const allKinds = {
-    author:'author'
+// constant
+const filterLists = {
+    like:'like',
+    scores:'scores',
+    comments:'comments'
 }
+
+// action type
+const kindChange = 'kind/filter';
 
 // actionCreator
 const changeKind = (kind)=>{
 
     return(
         {
-            type:kindChangeOrReverse,
+            type:kindChange,
             payload:{
                 kind:kind,
                 reverse:false
@@ -20,4 +22,4 @@ const changeKind = (kind)=>{
     );
 }
 
-export {changeKind,allKinds,kindChangeOrReverse};
+export { changeKind, kindChange, filterLists};

@@ -22,15 +22,4 @@ const mapState = (state) =>({
     page: findItem(state, state.news.keywords[0]).oldPage
 })
 
-// tool
-// const findItem = (state,keyword)=>{
-//     let page;
-//     state.news.items.map((item)=>{
-//         if(item.keyword===keyword){
-//             page=item.page+1;
-//         }
-//     })
-//     return page;
-// }
-
 export default connect(mapState,mapDispatch)(SearchMore);

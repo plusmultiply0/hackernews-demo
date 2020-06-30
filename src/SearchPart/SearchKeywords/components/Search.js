@@ -14,10 +14,10 @@ class Search extends Component {
         this.clearInput = this.clearInput.bind(this);
     }
 
-    // componentDidMount() {
-    //     this.setState({tmpInput:'react'});
-    //     setTimeout(()=>fetchResult('react'),2000);
-    // }
+    componentDidMount() {
+        this.setState({tmpInput:'react'});
+        setTimeout(()=>this.props.fetchResult('react'),1000);
+    }
 
     setInput(event){
         this.setState({
