@@ -2,17 +2,19 @@ import React, { Component } from 'react';
 import Kind from './Kind';
 import {connect} from 'react-redux';
 import { changeKind} from '../actions';
+import PropTypes from 'prop-types';
 // constant
 const klists = [
+    'none',
     'like',
-    'comments',
-    'scores'
+    // 'comments',
+    // 'scores'
 ]
 
 class KindLists extends Component{
     constructor(props){
         super(props);
-        this.state={selectValue:'like'}
+        this.state={selectValue:'none'}
         this.handleSelect = this.handleSelect.bind(this);
     }
     handleSelect(e){
@@ -36,5 +38,9 @@ class KindLists extends Component{
 }
 const mapDispatch = {
     changeKind
+}
+
+KindLists.propTypes={
+    changeKind:PropTypes.func
 }
 export default connect(null,mapDispatch)(KindLists);

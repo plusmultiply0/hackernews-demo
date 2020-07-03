@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import {fetchResult} from '../actions';
+import PropTypes from 'prop-types';
 
 class Search extends Component {
 
@@ -51,4 +52,7 @@ const mapDispatch = {
     fetchResult
 };
 
+Search.propTypes={
+    fetchResult:PropTypes.func,
+}
 export default connect(null,mapDispatch)(Search);

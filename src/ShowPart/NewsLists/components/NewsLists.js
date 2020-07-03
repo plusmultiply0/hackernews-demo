@@ -3,9 +3,9 @@ import NewsItem from './NewsItem';
 import { connect } from 'react-redux';
 import { findItem } from '../../../utility';
 import { filterLists} from '../../KindLists';
-import { createStore } from 'redux';
 import { createSelector } from 'reselect';
 // import { createSelector } from 'reselect';
+import PropTypes from 'prop-types';
 
 const Loading = () => {
     return (
@@ -92,6 +92,40 @@ const mapState = (state) => {
     return{
         allItems:getAllItems(state)
     }
+}
+
+// propType check
+NewsLists.propTypes={
+    allItems:PropTypes.shape({
+        items:PropTypes.arrayOf(PropTypes.shape({
+            keyword:PropTypes.string,
+            hits:PropTypes.arrayOf(PropTypes.shape({
+                author: PropTypes.string,
+                num_comments: PropTypes.number,
+                title: PropTypes.string,
+                url: PropTypes.string,
+                key: PropTypes.string,
+                kind: PropTypes.string,
+                itemID: PropTypes.string,
+                points: PropTypes.number,
+                created: PropTypes.string,
+            })),
+            page:PropTypes.number
+        })),
+        searchTerm:PropTypes.string,
+        isCache:PropTypes.bool,
+        oldHits: PropTypes.arrayOf(PropTypes.shape({
+            author: PropTypes.string,
+            num_comments: PropTypes.number,
+            title: PropTypes.string,
+            url: PropTypes.string,
+            key: PropTypes.string,
+            kind: PropTypes.string,
+            itemID: PropTypes.string,
+            points: PropTypes.number,
+            created: PropTypes.string,
+        }))
+    })
 }
 
 export default connect(mapState, null)(NewsLists);

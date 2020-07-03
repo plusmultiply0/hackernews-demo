@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Kind = (props) => {
 
@@ -9,4 +10,7 @@ const Kind = (props) => {
     );
 }
 
+Kind.propTypes = {
+    children:PropTypes.string
+}
 export default Kind;

@@ -1,5 +1,6 @@
 // constant
 const filterLists = {
+    all:'all',
     like:'like',
     scores:'scores',
     comments:'comments'

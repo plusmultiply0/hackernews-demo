@@ -1,10 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { deleteItem, likeItem } from '../actions';
+import PropTypes from 'prop-types';
 
 const NewsItem = (props) => {
     let { author, num_comments, title, url, kind, like, itemID, deleteItem, likeItem, points, created } = props;
-    console.log(like)
+    
     let delItem = () => deleteItem(itemID);
     let likItem = (e) => {
         likeItem(itemID);
@@ -40,4 +41,17 @@ const mapDispatch = {
     likeItem
 }
 
+NewsItem.propTypes = { 
+    author:PropTypes.string, 
+    num_comments:PropTypes.number, 
+    title:PropTypes.string, 
+    url:PropTypes.string, 
+    kind: PropTypes.string, 
+    like: PropTypes.bool, 
+    itemID: PropTypes.string, 
+    deleteItem: PropTypes.func, 
+    likeItem: PropTypes.func, 
+    points: PropTypes.number, 
+    created: PropTypes.string 
+}
 export default connect(null, mapDispatch)(NewsItem);

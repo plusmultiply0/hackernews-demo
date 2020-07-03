@@ -1,6 +1,6 @@
 import { kindChange} from './actions';
 
-function filterReducer(state='',action){
+function filterReducer(state='all',action){
 
     switch(action.type){
         case kindChange:
