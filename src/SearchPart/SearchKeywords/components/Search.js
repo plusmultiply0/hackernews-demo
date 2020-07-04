@@ -3,7 +3,22 @@ import { connect } from 'react-redux';
 
 import {fetchResult} from '../actions';
 import PropTypes from 'prop-types';
+import styled from 'styled-components/macro';
 
+// style-components
+const StyleInput = styled.input`
+    margin: 2px 5px;
+    border: 1px solid #000;
+    border-radius: 2px;
+`
+const StyleButton = styled.button`
+    margin-right:3px;
+    border:1px solid hsla(0, 5%, 55%, 0.47);
+    background-color: hsla(0, 5%, 66%, 0.47);
+    border-radius: 3px;
+`
+
+// noraml defination
 class Search extends Component {
 
     constructor(props) {
@@ -40,9 +55,9 @@ class Search extends Component {
         
         return (
             <div className="search">
-                <input onChange={this.setInput} value={tmpInput}/>
-                <button className="submit" onClick={fetchResultFunc}>search</button>
-                <button className="cancel" onClick={this.clearInput}>cancel</button>
+                <StyleInput onChange={this.setInput} value={tmpInput} type="text"/>
+                <StyleButton className="submit" onClick={fetchResultFunc}>search</StyleButton>
+                <StyleButton className="cancel" onClick={this.clearInput}>cancel</StyleButton>
             </div>
         )
     }

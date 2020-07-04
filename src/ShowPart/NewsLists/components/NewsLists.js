@@ -5,6 +5,11 @@ import { findItem } from '../../../utility';
 import { filterLists} from '../../KindLists';
 import { createSelector } from 'reselect';
 // import { createSelector } from 'reselect';
+import styled from 'styled-components/macro';
+
+// style-component
+
+// normal defination
 import PropTypes from 'prop-types';
 
 const Loading = () => {

@@ -1,12 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components/macro';
 
+// style
+const StyleOption = styled.option` 
+    color:hsla(0, 9%, 6%, 0.83);
+`;
+
+// 
 const Kind = (props) => {
-
     return (
-            <option className="kindlist" value={props.children}>
+        <StyleOption className="kindlist" value={props.children}>
                 {props.children}
-            </option>
+        </StyleOption>
     );
 }
 

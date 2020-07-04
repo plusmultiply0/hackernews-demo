@@ -12,7 +12,7 @@ a {
 }
 
 /* filter */
-.filter{
+/* .filter{
   display: flex;
   margin: 1% 0;
   margin-left: 40%;
@@ -22,17 +22,27 @@ a {
 }
 
 /* kindlist */
-.kind {
+/* .kind {
   display: flex;
-  grid-template-columns: 1fr 5fr 1fr 1fr 2fr 1fr 20px 1fr;
 }
 .kindlist {
-  font-weight: 700;
-}
+  /* font-weight: 700; 
+} 
 
 /* loading */
 .loading{
   font-weight: 900;
+}
+
+/* newstable */
+.newstable{
+  display: flex;
+  flex-flow: column;
+  
+}
+/* newlist */
+.newlist{
+  width:100%;
 }
 
 /* newsitem */
@@ -51,33 +61,35 @@ a {
 .newsitem {
   display: flex;
   margin: 5px 0;
-  justify-content: space-around;
+  justify-content: space-between;
+  background-color: hsla(0, 15%, 20%, 0.86);
 }
 /* newsitem delete*/
-.newsitem span.delete {
+.newsitem .delete {
   display: flex;
   align-items: center;
   border: 1px solid #456;
-  padding: 2% 4%;
-  background-color: hsla(0, 15%, 20%, 0.86);
-  color: #fff;
+  padding: 2% 5%;
+  background-color: rgba(15, 14, 14, 0.13);
+  color: #000;
   border-left: transparent;
 }
 .newsitem span.delete:hover {
-  border: 1px solid rgba(15, 14, 14, 0.13);
-  background-color: rgba(15, 14, 14, 0.13);
+  border-color:rgba(15, 14, 14, 0.13);
+  background-color: hsla(0, 15%, 20%, 0.86);
   display: flex;
+  
 }
 .newsitem span.delete:hover span {
-  color: hsla(0, 15%, 20%, 0.86);
+  color: #fff;
   background-color: transparent;
 }
 /* newsitem itemlike*/
 .itemlike {
   display: flex;
   justify-content: space-between;
-  width: 60%;
-  background-color: hsla(0, 15%, 20%, 0.86);
+  width: 100%;
+  /* background-color: hsla(0, 15%, 20%, 0.86); */
   color: #fff;
   border: 1px solid #456;
   border-right: none;
@@ -86,12 +98,12 @@ a {
 
 /* item */
 
-.item {
+/* .item {
   display: flex;
   flex-flow: column;
   align-items: flex-start;
   padding: 4px 2px;
-}
+} */
 
 .item div:first-child,
 .item div:last-child {
@@ -105,7 +117,7 @@ a {
 }
 
 /* item div:lastchild */
-.created,
+/* .created,
 .comment {
   font-size: 0.8em;
   margin-right: 5px;
@@ -114,10 +126,11 @@ a {
 .scores {
   font-size: 0.9em;
 }
+*/
 .author,
 .comment {
   text-decoration: underline;
-}
+} 
 /*  */
 
 
@@ -180,10 +193,10 @@ div.forlike::after{
 }
 /* more  */
 
-div .more {
+/* div .more {
   border: 1px solod hsla(0, 15%, 20%, 0.86)000;
   border-radius: 10px;
   width: 5%;
   background-color: brown;
   color: #fff;
-}
+} */

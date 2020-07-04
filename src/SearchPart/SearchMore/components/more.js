@@ -3,14 +3,28 @@ import {connect} from 'react-redux';
 import { fetchResult} from '../../SearchKeywords';
 import {findItem} from '../../../utility';
 import PropTypes from 'prop-types';
+import styled from 'styled-components/macro';
 
+// style 
+const StyleButton = styled.button`
+    border: 1px solod hsla(0, 15%, 20%, 0.86);
+    border-radius: 10px;
+    /* width: 10%; */
+    padding: 4px 4px;
+    margin: 5px 0;
+    background-color: brown;
+    color: #fff;
+    font-size:1.1em;
+`
+
+// normal defination
 const SearchMore = (props)=>{
     const {moreValue,searchTerm,page} = props;
     const search = ()=>moreValue(searchTerm,page+1);
     return(
-        <div className="more" onClick={search}>
+        <StyleButton className="more" onClick={search}>
             More
-        </div>
+        </StyleButton>
     )
 }
 
