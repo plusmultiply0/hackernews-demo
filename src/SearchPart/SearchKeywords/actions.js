@@ -1,4 +1,5 @@
-
+import fetch from 'cross-fetch';
+import Promise from 'promise-polyfill';
 // constant
 const baseUrl = 'http://hn.algolia.com/api/v1/';
 const searchMode = 'search';
@@ -77,8 +78,8 @@ function fetchResult(searchTrem,page=0){
         const egurl = `${baseUrl}${searchMode}?${paramSearch}${searchTrem}&${paramPage}${page}&${paramHpp}${defaultHpp}`
         // cache
         const { keywords } = getState().news;
-        console.log(keywords)
-        console.log(keywords&&keywords.indexOf(searchTrem));
+        // console.log(keywords)
+        // console.log(keywords&&keywords.indexOf(searchTrem));
         if (keywords&&keywords.indexOf(searchTrem)!==-1&&page===0){
             dispatch(useCache(searchTrem));
             return;
@@ -96,6 +97,6 @@ function fetchResult(searchTrem,page=0){
     }
 }
 
-export {beginRequest,successRequest,failRequest}
+export {beginRequest,successRequest,failRequest,useCache,useSearch}
 export { searchBegin, searchSuccess, searchFail,cacheUse,searchUse}
 export {fetchResult}

@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import { fetchResult} from '../../SearchKeywords';
 import {findItem} from '../../../utility';
 import PropTypes from 'prop-types';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 
 // style 
 const StyleButton = styled.button`
@@ -43,3 +43,4 @@ SearchMore.propTypes={
     page:PropTypes.number
 }
 export default connect(mapState,mapDispatch)(SearchMore);
+export { SearchMore, StyleButton}

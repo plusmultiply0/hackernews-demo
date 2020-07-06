@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import {fetchResult} from '../actions';
 import PropTypes from 'prop-types';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 
 // style-components
 const StyleInput = styled.input`
@@ -71,3 +71,5 @@ Search.propTypes={
     fetchResult:PropTypes.func,
 }
 export default connect(null,mapDispatch)(Search);
+
+export { StyleInput, StyleButton,Search}

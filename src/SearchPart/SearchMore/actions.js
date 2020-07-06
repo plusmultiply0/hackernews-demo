@@ -37,4 +37,4 @@ const requestMoreFail = ()=>{
     })
 }
 
-export {requestMore,requestMoreSuccess,requestMoreFail}
+export { requestMore, requestMoreSuccess, requestMoreFail, moreRequest, moreRequestSuccess, moreRequestFail}

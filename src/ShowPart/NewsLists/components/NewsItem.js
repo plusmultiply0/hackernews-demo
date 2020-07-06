@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { deleteItem, likeItem } from '../actions';
 import PropTypes from 'prop-types';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 
 // style-component
 const StyleSpan = styled.span`
@@ -45,7 +45,7 @@ const NewsItem = (props) => {
             <div className="itemlike">
                 <StyleItem className="item">
                     <div>{'type: ' + kind}</div>
-                    <StyleTitle href={url} className="link">{title.length>50?title.split(' ').slice(0,-5).join(' ')+' ...':title}</StyleTitle>
+                    <StyleTitle href={url} className="link">{title&&title.length>50?title.split(' ').slice(0,-5).join(' ')+' ...':title}</StyleTitle>
                     <div>
                         <StyleSpan>{'by '}<a href={'https://news.ycombinator.com/user?id=' + author} className="author">{author}</a></StyleSpan>
                         <StyleSpan className="created">{'created at ' + (new Date(created)).toDateString()}</StyleSpan>
@@ -83,3 +83,4 @@ NewsItem.propTypes = {
     created: PropTypes.string 
 }
 export default connect(null, mapDispatch)(NewsItem);
+export { StyleSpan, StyleScore, StyleTitle,StyleItem,NewsItem};

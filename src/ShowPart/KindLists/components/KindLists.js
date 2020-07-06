@@ -3,7 +3,7 @@ import Kind from './Kind';
 import { connect } from 'react-redux';
 import { changeKind } from '../actions';
 import PropTypes from 'prop-types';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 
 // style-components
 const StyleDiv = styled.div`
@@ -71,3 +71,4 @@ KindLists.propTypes = {
     changeKind: PropTypes.func
 }
 export default connect(null, mapDispatch)(KindLists);
+export { StyleDiv, StyleLabel, StyleButton, StyleSelect, KindLists}

@@ -5,18 +5,19 @@ import { findItem } from '../../../utility';
 import { filterLists} from '../../KindLists';
 import { createSelector } from 'reselect';
 // import { createSelector } from 'reselect';
-import styled from 'styled-components/macro';
-
-// style-component
-
-// normal defination
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
+// style-component
+const StyleLoading = styled.div`
+    text-align:center;
+`;
+// normal defination
 
 const Loading = () => {
     return (
-        <div className="loading">
+        <StyleLoading className="loading">
             Loading...
-        </div>
+        </StyleLoading>
     );
 }
 
@@ -134,3 +135,5 @@ NewsLists.propTypes={
 }
 
 export default connect(mapState, null)(NewsLists);
+// for test
+export { Loading, NewsLists, getAllItems, StyleLoading}

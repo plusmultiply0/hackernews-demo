@@ -43,8 +43,8 @@ function caseSuccess(state,action){
 
 function caseDelete(state,action){
     const {items,searchTerm} = state;
-    console.log(items);
     let item = items.filter((item)=>item.keyword===searchTerm)[0];
+    if(!item)return state;
     let restItems = items.filter((item) => item.keyword !== searchTerm);
     let newHits = item.hits.filter((item) => item.objectID !== action.payload.id);
     
@@ -53,8 +53,8 @@ function caseDelete(state,action){
 
 function caseLike(state,action){
     const { items, searchTerm } = state;
-    console.log(items);
     let item = items.filter((item) => item.keyword === searchTerm)[0];
+    if(!item)return state;
     let restItems = items.filter((item) => item.keyword !== searchTerm);
     let newHits = item.hits.map((item)=>{
         if (item.objectID === action.payload.id){
@@ -67,7 +67,7 @@ function caseLike(state,action){
     return Object.assign({}, state, { items: [Object.assign({}, item, { hits: newHits }),...restItems] })
 }
 
-function newsReducer(state = { items: [], keywords: [], isCache: false,searchTerm:'',isLoading:false},action){
+function newsReducer(state = { items: [], keywords: [], isCache: false, searchTerm: '', isLoading: false },action){
     
     switch(action.type){
         case searchBegin:
